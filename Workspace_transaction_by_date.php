@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'db_connect.php'; // Your database connection file
+require 'db_connect.php'; 
 
 header('Content-Type: application/json');
 
@@ -17,7 +17,6 @@ if (empty($date)) {
     exit;
 }
 
-// Validate date format (basic check)
 if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $date)) {
     echo json_encode(['error' => 'Invalid date format. Expected YYYY-MM-DD.']);
     exit;
@@ -25,7 +24,6 @@ if (!preg_match("/^\d{4}-\d{2}-\d{2}$/", $date)) {
 
 $transactions = [];
 
-// Prepare SQL statement to fetch transactions for the specific date
 $sql = "SELECT id, title, amount, type, category, date_issued
         FROM transactions
         WHERE user_id = ? AND DATE(date_issued) = ?

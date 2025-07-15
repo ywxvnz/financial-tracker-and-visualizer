@@ -70,7 +70,6 @@ exit();
         </select>
     </div>
 
-    <!-- Hidden custom question input -->
     <div class="input-control" id="custom-question-div" style="display: none;">
         <label for="custom_question">Your Custom Question</label>
         <input type="text" id="custom_question" name="custom_question" placeholder="Enter your custom security question">

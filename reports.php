@@ -139,12 +139,11 @@ function getDisplayPeriodText($filter) {
     }
 }
 
-// These variables are now used within their respective sections
 $display_period_text_income = getDisplayPeriodText($filter_period);
 $display_period_text_expenses = getDisplayPeriodText($filter_period);
 $display_period_text_savings = getDisplayPeriodText($filter_period);
-$display_period_text_loan = getDisplayPeriodText($filter_period); // For loans
-$display_period_text_summary = getDisplayPeriodText($filter_period); // For summary
+$display_period_text_loan = getDisplayPeriodText($filter_period); 
+$display_period_text_summary = getDisplayPeriodText($filter_period); 
 ?>
 
 <!DOCTYPE html>
@@ -379,7 +378,7 @@ $display_period_text_summary = getDisplayPeriodText($filter_period); // For summ
       <p class="summary-value">₱<?= number_format($savingsData['total'], 2) ?></p>
     </div>
   </div>
-</div> <!-- END OF SUMMARY SECTION -->
+</div>
   </table>
   
 

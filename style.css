@@ -152,11 +152,11 @@
 
 /*SIGN IN CSS*/
 .sign-in {
-    width: 100%; /* Let it stretch full width inside .sign-up */
+    width: 100%; 
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Control spacing between inputs */
-    align-items: stretch; /* Ensures inputs take full width */
+    gap: 10px; 
+    align-items: stretch; 
   }
   
   
@@ -210,161 +210,160 @@
 /* SIDEBAR DESIGN */
 .side-nav {
   position: sticky;
-    width: 80px; /* Adjusted initial width */
-    min-width: 80px; /* Ensure it never shrinks below this */
+    width: 80px; 
+    min-width: 80px; 
     height: 100vh;
     background: rgb(29, 42, 98);
     top: 0;
     left: 0;
-    padding: 20px 10px; /* Adjusted padding */
+    padding: 20px 10px; 
     backdrop-filter: blur(5px);
     display: flex;
-    justify-content: space-between; /* Pushes user and logout to ends */
+    justify-content: space-between;
     flex-direction: column;
-    transition: width .3s ease-in-out; /* Smoother transition */
-    z-index: 100; /* Ensure sidebar is on top of other content */
-    overflow-y: auto; /* Enable vertical scrolling for the sidebar content */
-    overflow-x: hidden; /* Hide horizontal scrollbar always */
+    transition: width .3s ease-in-out; 
+    z-index: 100; 
+    overflow-y: auto; 
+    overflow-x: hidden;
 }
 
 /* Scrollbar Styling for WebKit browsers (Chrome, Safari, Edge) */
 .side-nav::-webkit-scrollbar {
-    width: 8px; /* Width of the scrollbar */
+    width: 8px; 
 }
 
 .side-nav::-webkit-scrollbar-track {
-    background: transparent; /* Make the track transparent */
+    background: transparent; 
 }
 
 .side-nav::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white thumb */
-    border-radius: 10px; /* Rounded corners for the thumb */
-    border: 2px solid transparent; /* Gives a slight border, blending with background */
+    background-color: rgba(255, 255, 255, 0.2); 
+    border-radius: 10px; 
+    border: 2px solid transparent; 
 }
 
 .side-nav::-webkit-scrollbar-thumb:hover {
-    background-color: rgba(255, 255, 255, 0.4); /* Darker thumb on hover */
+    background-color: rgba(255, 255, 255, 0.4); 
 }
 
 .user {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center content initially */
-    width: 100%; /* Occupy full width of collapsed sidebar */
+    justify-content: center; 
+    width: 100%; 
     font-size: 12px;
-    padding: 10px 0; /* Adjusted padding */
+    padding: 10px 0; 
     border-radius: 8px;
-    margin-bottom: 20px; /* Add some space below user section */
-    overflow: hidden; /* Hide overflow content for smooth transition */
-    flex-shrink: 0; /* Prevent shrinking on smaller screens */
+    margin-bottom: 20px; 
+    overflow: hidden; 
+    flex-shrink: 0; 
 }
 
-/* This is the new class for the div around "Online Financial" */
 .user .user-info { 
-    display: none; /* Hidden by default when collapsed */
-    white-space: wrap; /* Prevent text wrapping */
+    display: none;
+    white-space: wrap; 
     transition: opacity 0.3s ease-in-out;
     opacity: 0;
-    flex-grow: 1; /* Allows text to take available space when visible */
+    flex-grow: 1;
 }
 
 .user h2 {
-    font-size: 1.2rem; /* Adjusted font size for scalability */
+    font-size: 1.2rem; 
     font-weight: 600;
     font-family: "georgia", serif;
     color: #ffffff;
-    margin-left: 15px; /* Adjusted margin for spacing from image */
-    line-height: 1.2; /* Prevent squishing of text lines */
+    margin-left: 15px;
+    line-height: 1.2;
 }
 
 .user-img {
-    width: 45px; /* Slightly larger for better visibility */
+    width: 45px; 
     height: 45px;
-    border-radius: 50%; /* Changed to 50% for perfect circle */
-    object-fit: cover; /* Ensure image covers the area without distortion */
-    margin: 0; /* Reset margin */
-    flex-shrink: 0; /* Prevent shrinking */
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0;
+    flex-shrink: 0; 
 }
     
 ul {
     list-style: none;
-    padding: 0; /* Removed horizontal padding */
-    flex-grow: 1; /* Allow the main list to take available space */
+    padding: 0; 
+    flex-grow: 1; 
 }
 
 ul li {
-    margin: 25px 0; /* Adjusted vertical margin */
+    margin: 25px 0; 
     display: flex;
     align-items: center;
-    justify-content: center; /* Center items initially */
+    justify-content: center; 
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease; /* Added transform for hover */
+    transition: background 0.3s ease, transform 0.3s ease; 
 }
 
 ul li img {
-   width: 25px; /* Adjusted icon size */
+   width: 25px; 
    margin-right: 0;   
 }
 
 ul li p {
-    white-space: nowrap; /* Essential for preventing text from wrapping */
-    font-weight: 500; /* Slightly lighter font weight */
-    display: none; /* Hidden by default */
+    white-space: nowrap; 
+    font-weight: 500; 
+    display: none;
     color: rgba(255, 255, 255, 0.911);
-    margin-left: 10px; /* Space between icon and text */
-    opacity: 0; /* Start hidden */
+    margin-left: 10px;
+    opacity: 0; 
     transition: opacity 0.3s ease-in-out;
 }
 
 ul li a {
     display: flex;
     align-items: center;
-    justify-content: center; /* Center content initially */
+    justify-content: center; 
     text-decoration: none;
     color: inherit;
     width: 100%;
     height: 100%;
-    padding: 10px 0; /* Add padding to the clickable area */
-    border-radius: 8px; /* Rounded corners for clickable area */
+    padding: 10px 0; 
+    border-radius: 8px; 
 }
 
 /* Logout section - Uses the new class */
 .logout-section {
-    margin-top: auto; /* Push to the bottom */
-    padding-top: 20px; /* Space from above items */
-    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Separator line */
-    flex-shrink: 0; /* Prevent it from shrinking */
+    margin-top: auto; 
+    padding-top: 20px; 
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0; 
 }
 
 
 /* DESIGN PARA SA SIDEBAR ON HOVER */
 .side-nav:hover {
-    width: 220px; /* Adjusted expanded width to ensure all text fits */
+    width: 220px; 
 }
 
 .side-nav:hover .user {
-    justify-content: flex-start; /* Align to start when expanded */
+    justify-content: flex-start; 
     background: rgba(29, 42, 98, 0.76);
     backdrop-filter: blur(5px);
-    padding: 10px; /* Add padding to the user section */
+    padding: 10px; 
 }
 
 .side-nav:hover .user-img {
-    margin-right: 15px; /* Space for text */
+    margin-right: 15px; 
 }
 
 .side-nav:hover .user .user-info {
-    display: block; /* Show user info */
+    display: block; 
     opacity: 1;
 }
 
 .side-nav:hover ul li {
-    justify-content: flex-start; /* Align to start when expanded */
-    padding-left: 15px; /* Indent menu items */
+    justify-content: flex-start; 
+    padding-left: 15px; 
 }
 
 .side-nav:hover ul li p {
-    display: block; /* Show paragraph text */
+    display: block; 
     opacity: 1;
 }
 
@@ -373,45 +372,45 @@ ul li a {
 }
 
 .side-nav:hover ul li a {
-    justify-content: flex-start; /* Align link content to start */
+    justify-content: flex-start; 
 }
 
 .side-nav:hover li:hover {
     background: rgba(176, 174, 179, 0.178);
     backdrop-filter: blur(5px);
     border-radius: 10px;
-    transform: translateX(5px); /* Subtle slide effect */
+    transform: translateX(5px); 
     transition: all 0.3s ease;
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .side-nav {
-        width: 60px; /* Even smaller sidebar on mobile */
+        width: 60px; 
         min-width: 60px;
         padding: 15px 5px;
     }
 
     .side-nav:hover {
-        width: 180px; /* Smaller expanded width on mobile */
+        width: 180px; 
     }
 
     .user h2 {
-        font-size: 1rem; /* Smaller font on mobile */
+        font-size: 1rem; 
     }
 
     ul li p {
-        font-size: 0.85rem; /* Smaller text on mobile */
+        font-size: 0.85rem; 
     }
 }
 
 @media (max-width: 480px) {
     .side-nav {
-        width: 50px; /* Very small sidebar on very small screens */
+        width: 50px;
         min-width: 50px;
     }
     .side-nav:hover {
-        width: 150px; /* Adjusted expanded width */
+        width: 150px; 
     }
     .user-img {
         width: 35px;
@@ -430,7 +429,7 @@ ul li a {
     padding: 13vb;
     padding-top: 5vb;
     background-color: #f5f3d8;
-    justify-content: flex-start; /* Align content to the left */
+    justify-content: flex-start; 
     align-items: flex-start;
     width: 100%;
 }
@@ -655,12 +654,12 @@ ul li a {
   padding: 40px;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  max-width: 140vb;         /* Limit width to a more reasonable size */
+  max-width: 140vb;         
   width: 100%;
-  margin: 0 auto;            /* Center horizontally */
+  margin: 0 auto;           
   display: flex;
   flex-direction: column;
-  gap: 15px;                 /* Better spacing between elements */
+  gap: 15px;                
 }
 
 .transaction-form input,
@@ -724,11 +723,11 @@ ul li a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Dimmed background */
+    background-color: rgba(0, 0, 0, 0.6); 
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999; /* Slightly lower than other modals if they overlap, adjust if needed */
+    z-index: 999; 
 }
 
 /* Styles for the Edit Goal Content (similar to add goal content) */
@@ -829,7 +828,7 @@ ul li a {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 15px; /* Slightly less margin as image is next */
+    margin-bottom: 15px; 
     border: 1px solid #e0e0e0;
     transition: background-color 0.2s ease;
 }
@@ -966,7 +965,7 @@ ul li a {
     font-size: 1.2rem;
 }
 .cancel-button {
-  background-color: #e53e3e; /* Red background */
+  background-color: #e53e3e; 
   color: white;
   padding: 8px 15px;
   border: none;
@@ -978,7 +977,7 @@ ul li a {
 
 
 .cancel-button:hover {
-  background-color: #c53030; /* Darker red on hover */
+  background-color: #c53030; 
 }
 
 
@@ -986,7 +985,7 @@ ul li a {
 /* For the profile picture label to make it clickable */
 .profile-picture-label {
     cursor: pointer;
-    display: inline-block; /* Or block, depending on your layout */
+    display: inline-block; 
 }
 
 /* Style for the image within the label */
@@ -1000,7 +999,7 @@ ul li a {
     display: flex;
     padding: 3vb;
     background-color: #f5f3d8;
-    align-items: flex-start; /* Aligns items at the top */
+    align-items: flex-start; 
 }
 
 .profile-area {
@@ -1008,14 +1007,14 @@ ul li a {
     padding: 20px;
     color: #1d2a62;
     display: flex;
-    flex-direction: column; /* Ensures vertical stacking of elements */
-    align-items: flex-start; /* Aligns content to the left */
+    flex-direction: column; 
+    align-items: flex-start; 
 }
 
 .profile-area h2 {
     font-size: 3.5rem;
     margin-bottom: 20px;
-    text-align: left; /* Aligns title to the left */
+    text-align: left; 
 }
 
 .profile-infos {
@@ -1060,7 +1059,7 @@ ul li a {
 
 
 .forms-section {
-    width: 55%; /* Adjusted to provide space for profile */
+    width: 55%; 
     margin-top: 5rem;
     padding: 20px;
     display: flex;
@@ -1084,7 +1083,7 @@ ul li a {
     border: 1px solid #ccc;
     font-size: 1rem;
     background-color: white;
-    margin-bottom: 20px; /* Adds space between input fields */
+    margin-bottom: 20px; 
 }
 
 .forms-section button {
@@ -1097,7 +1096,7 @@ ul li a {
     font-size: 1rem;
     cursor: pointer;
     width: 150px;
-    align-self: flex-start; /* Ensures button is aligned to the left */
+    align-self: flex-start; 
 }
 
 /* HOVER EFFECTS FOR CONFIG */
@@ -1145,7 +1144,7 @@ ul li a {
   justify-content: center;
   flex-direction: row;
   gap: 10px;
-  align-items: center; /* or 'flex-start' to align left */
+  align-items: center; 
   
 }
 .forpass input[type="email"]{
@@ -1262,7 +1261,7 @@ ul li a {
   justify-content: center;
   flex-direction: row;
   gap: 10px;
-  align-items: center; /* or 'flex-start' to align left */
+  align-items: center; 
   
 }
 .security input[type="text"]{
@@ -1315,7 +1314,7 @@ ul li a {
   flex-direction: center;
   margin-left: 80px;
   gap: 10px;
-  align-items: center; /* or 'flex-start' to align left */
+  align-items: center; 
   
 }
 .reset input[type="password"]{
@@ -1395,8 +1394,8 @@ ul li a {
 
 .summary {
   position: absolute;
-  top: 20px;         /* space from top */
-  right: 47px;       /* space from right */
+  top: 20px;         
+  right: 47px;      
   background-color: white;
   border-radius: 15px;
   padding: 20px;
@@ -1405,7 +1404,7 @@ ul li a {
   font-weight: bold;
   color: #1d2a62;
   box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  z-index: 10; /* ensures it appears on top if needed */
+  z-index: 10; 
 }
 
 .summary p {
@@ -1471,7 +1470,7 @@ tr:nth-child(even) {
   width: 20px;
   height: 20px;
   object-fit: contain;
-  filter: drop-shadow(0 0 1px rgba(0,0,0,0.2)); /* optional: improve visibility */
+  filter: drop-shadow(0 0 1px rgba(0,0,0,0.2));
 }
 
 .add-category-btn {
@@ -1547,15 +1546,14 @@ tr:nth-child(even) {
 }
 
 /* CALENDAR SECTION */
-/* Calendar container (optional, but good for centering/sizing) */
 .calendar {
-  width: 100%; /* Or a fixed width like 700px */
-  max-width: 700px; /* Max width to prevent it from getting too wide */
-  margin: 20px auto; /* Center the calendar */
+  width: 100%; 
+  max-width: 700px; 
+  margin: 20px auto; 
   border: 1px solid #ccc;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  overflow: hidden; /* Important for border-radius on children */
+  overflow: hidden; 
 }
 
 /* Header for month/year and navigation */
@@ -1600,21 +1598,20 @@ tr:nth-child(even) {
   padding: 5px;
 }
 
-/* Main calendar grid for days */
 
 
 /* Styles for individual day cells */
 .calendar-grid .day {
   padding: 10px;
-  background-color: #fff; /* Default background for days */
+  background-color: #fff;
   border: 1px solid #ddd;
   text-align: center;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease; /* Smooth transition */
-  min-height: 80px; /* Ensure a minimum height for day cells */
-  display: flex; /* To center content vertically if needed */
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+  transition: background-color 0.2s ease, transform 0.1s ease; 
+  min-height: 80px; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
   font-size: 1.1em;
 }
 
@@ -1627,10 +1624,10 @@ tr:nth-child(even) {
 
 /* Existing selected/hover styles */
 .calendar-grid .day:hover:not(.empty):not(.selected-day) {
-  filter: brightness(95%); /* Subtle hover effect on heatmap colors */
+  filter: brightness(95%); 
 }
 .selected-day {
-  background-color: #007bff; /* Example selected day color */
+  background-color: #007bff; 
   color: white;
   border: 2px solid #0056b3;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
@@ -1638,30 +1635,30 @@ tr:nth-child(even) {
 /* Calendar container */
 .calendar-wrapper-container {
 
-    flex-grow: 1; /* Allows it to take available space */
+    flex-grow: 1;
 }
 
 .calendar-title {
     font-size: 3.5rem;
     margin-bottom: 20px;
     color: #202b5e;
-    text-align: center; /* Center the title */
+    text-align: center; 
 }
 
 .calendar-main-box {
     display: flex;
-    gap: 30px; /* Space between calendar and transaction box */
-    max-width: 1200px; /* Adjust max width as needed */
-    margin: 0 auto; /* Center the main calendar box */
+    gap: 30px; 
+    max-width: 1200px; 
+    margin: 0 auto; 
     padding: 20px;
-    background-color: #ffffff; /* Background for the combined box */
+    background-color: #ffffff; 
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .calendar-box {
-    flex: 1; /* Take up equal space */
-    min-width: 350px; /* Minimum width for calendar */
+    flex: 1; 
+    min-width: 350px; 
 }
 
 .calendar-header {
@@ -1669,7 +1666,7 @@ tr:nth-child(even) {
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-    background-color: #1d2a62; /* Dark blue from your palette */
+    background-color: #1d2a62; 
     color: white;
     font-size: 1.2em;
     font-weight: bold;
@@ -1691,7 +1688,7 @@ tr:nth-child(even) {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-.calendar-days { /* Weekday headers (Sun, Mon, etc.) */
+.calendar-days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
     background-color: #f2f2f2;
@@ -1706,23 +1703,23 @@ tr:nth-child(even) {
     padding: 5px;
 }
 
-.calendar-grid { /* The main grid for the days */
+.calendar-grid { 
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 1px; /* Small gap between day cells */
-    background-color: #eee; /* Background for grid lines */
+    gap: 1px; 
+    background-color: #eee; 
     border-radius: 0 0 8px 8px;
-    overflow: hidden; /* Ensures rounded corners */
+    overflow: hidden; 
 }
 
 .calendar-grid .day {
     padding: 10px;
-    background-color: #fff; /* Default background for days */
+    background-color: #fff; 
     border: 1px solid #ddd;
     text-align: center;
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
-    min-height: 80px; /* Ensure a minimum height for day cells */
+    min-height: 80px; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1737,18 +1734,17 @@ tr:nth-child(even) {
 
 /* HEATMAP STYLES */
 .day.level-0 { background-color: #ffffff; }
-.day.level-1 { background-color: #cfe2f3; } /* Lightest blue */
-.day.level-2 { background-color: #9fc5e8; } /* Medium blue */
-.day.level-3 { background-color: #6fa8dc; } /* Darker blue */
-.day.level-4 { background-color: #3d85c6; } /* Darkest blue */
+.day.level-1 { background-color: #cfe2f3; } 
+.day.level-2 { background-color: #9fc5e8; } 
+.day.level-3 { background-color: #6fa8dc; } 
+.day.level-4 { background-color: #3d85c6; } 
 
 /* Selected and current day styles */
 .calendar-grid .day.current-day {
-    border-color: #00bcd4; /* Cyan border for today */
-    font-weight: bold;
+    border-color: #00bcd4; 
 }
 .calendar-grid .day.selected-day {
-    background-color: #007bff; /* Example selected day color */
+    background-color: #007bff; 
     color: white;
     border: 2px solid #0056b3;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
@@ -1760,34 +1756,34 @@ tr:nth-child(even) {
 .day.selected-day.level-2,
 .day.selected-day.level-3,
 .day.selected-day.level-4 {
-    background-color: #007bff !important; /* Forces selected color */
+    background-color: #007bff !important; 
     color: white !important;
 }
 
 /* If the selected day is also the current day */
 .day.selected-day.current-day {
-    background-color: #00bcd4 !important; /* A distinct color for selected current day */
+    background-color: #00bcd4 !important; 
     border-color: #0097a7 !important;
 }
 
 /* Hover effect for heatmap days */
 .calendar-grid .day:hover:not(.empty):not(.selected-day) {
-    filter: brightness(95%); /* Slightly darken on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+    filter: brightness(95%); 
+    transform: translateY(-2px); 
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 
 /* Transaction box */
 .transaction-box {
-    flex: 1; /* Take up equal space */
+    flex: 1; 
     background-color: #f9f9f9;
     border-radius: 8px;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05); 
     padding: 20px;
     display: flex;
     flex-direction: column;
-    min-height: 400px; /* Ensure consistent height */
+    min-height: 400px; 
 }
 
 .transaction-header {
@@ -1845,7 +1841,7 @@ tr:nth-child(even) {
 .transaction-title {
     font-weight: bold;
     color: #555;
-    display: block; /* Ensures title takes full width */
+    display: block; 
 }
 
 .transaction-category {
@@ -1854,15 +1850,15 @@ tr:nth-child(even) {
 }
 
 .income-amount {
-    color: #28a745; /* Green for income */
+    color: #28a745; 
     font-weight: bold;
-    flex-shrink: 0; /* Prevent it from shrinking */
+    flex-shrink: 0; 
 }
 
 .expense-amount {
-    color: #dc3545; /* Red for expense */
+    color: #dc3545; 
     font-weight: bold;
-    flex-shrink: 0; /* Prevent it from shrinking */
+    flex-shrink: 0; 
 }
 
 .no-transactions {
@@ -1875,7 +1871,7 @@ tr:nth-child(even) {
     display: block;
     width: 100%;
     padding: 12px 20px;
-    background-color: #5f7706; /* Green from your palette */
+    background-color: #5f7706; 
     color: white;
     text-align: center;
     border-radius: 8px;
@@ -1899,15 +1895,15 @@ tr:nth-child(even) {
 /* Responsive adjustments for smaller screens */
 @media (max-width: 992px) {
     .calendar-main-box {
-        flex-direction: column; /* Stack calendar and transaction boxes vertically */
+        flex-direction: column; 
         align-items: center;
     }
     .calendar-box, .transaction-box {
-        width: 100%; /* Full width when stacked */
-        max-width: 500px; /* Limit max width for better appearance */
+        width: 100%; 
+        max-width: 500px; 
     }
     .calendar-wrapper-container {
-        margin-left: 80px; /* Adjust if sidebar changes size on mobile */
+        margin-left: 80px; 
         padding: 15px;
     }
     .calendar-title {
@@ -1917,7 +1913,7 @@ tr:nth-child(even) {
 
 @media (max-width: 768px) {
     .calendar-wrapper-container {
-        margin-left: 60px; /* Adjust if sidebar changes size on mobile */
+        margin-left: 60px; 
         padding: 10px;
     }
     .calendar-title {
@@ -1927,7 +1923,7 @@ tr:nth-child(even) {
         padding: 10px;
     }
     .calendar-grid .day {
-        min-height: 60px; /* Smaller height for days on smaller screens */
+        min-height: 60px; 
         font-size: 1em;
     }
     .transaction-header {
@@ -1961,17 +1957,17 @@ tr:nth-child(even) {
         position: fixed;
         bottom: 30px;
         right: 30px;
-        z-index: 1000; /* Ensure it's above other content */
+        z-index: 1000; 
         display: flex;
-        flex-direction: column-reverse; /* Stack options above main button */
-        align-items: center; /* Center horizontally */
+        flex-direction: column-reverse; 
+        align-items: center; 
     }
 
     /* Main FAB Button (the plus button) */
     .fab-button {
         width: 60px;
         height: 60px;
-        background-color: #1d2a62; /* Primary color */
+        background-color: #1d2a62;
         color: white;
         border-radius: 50%;
         display: flex;
@@ -1985,44 +1981,44 @@ tr:nth-child(even) {
     }
 
     .fab-button:hover {
-        background-color: #2a3c7c; /* Darker shade on hover */
+        background-color: #2a3c7c; 
         transform: scale(1.05);
     }
 
     /* FAB Options Container (Income, Expenses, Savings buttons) */
     .fab-options {
-        display: none; /* Hidden by default */
+        display: none; 
         flex-direction: column;
-        margin-bottom: 15px; /* Space between options and main FAB */
-        gap: 10px; /* Space between option buttons */
+        margin-bottom: 15px; 
+        gap: 10px; 
         opacity: 0;
-        transform: translateY(20px); /* Start slightly below */
+        transform: translateY(20px); 
         transition: opacity 0.3s ease, transform 0.3s ease;
-        align-items: center; /* Center buttons */
+        align-items: center; 
     }
 
     .fab-options.show {
-        display: flex; /* Show when 'show' class is added */
+        display: flex; 
         opacity: 1;
-        transform: translateY(0); /* Move to original position */
+        transform: translateY(0); 
     }
     /* FAB Option Buttons */
     .fab-option-button {
-        background-color: #5f7706; /* Green secondary color */
+        background-color: #5f7706; 
         color: white;
         border: none;
-        border-radius: 30px; /* More rounded */
+        border-radius: 30px; 
         padding: 10px 20px;
         font-size: 16px;
         cursor: pointer;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         transition: background-color 0.2s ease, transform 0.2s ease;
-        width: 120px; /* Fixed width for consistency */
+        width: 120px; 
         text-align: center;
     }
 
     .fab-option-button:hover {
-        background-color: #7a941f; /* Darker green on hover */
+        background-color: #7a941f; 
         transform: scale(1.05);
     }
     
@@ -2053,7 +2049,7 @@ tr:nth-child(even) {
       content: " ";
       position: absolute;
       top: 50%;
-      left: 100%; /* To the right of the tooltip */
+      left: 100%; 
       margin-top: -5px;
       border-width: 5px;
       border-style: solid;
@@ -2092,12 +2088,12 @@ tr:nth-child(even) {
 }
 
 .income-amount {
-  color: #28a745; /* Green for income */
+  color: #28a745; 
   font-weight: bold;
 }
 
 .expense-amount {
-  color: #dc3545; /* Red for expense */
+  color: #dc3545; 
   font-weight: bold;
 }
 
@@ -2214,16 +2210,16 @@ span.transaction-category {
 }
 .transaction-body {
     display: flex;
-    flex-direction: column;  /* Allow vertical stacking */
-    align-items: center;     /* Center items horizontally */
+    flex-direction: column;  
+    align-items: center;    
     justify-content: flex-start;
     padding: 30px;
     background-color: #fffef4;
     box-sizing: border-box;
     position: relative;
-    flex-grow: 1; /* Allows transaction list to fill space */
-    overflow-y: auto; /* Enable scrolling for long lists */
-    padding-right: 5px; /* Space for scrollbar */
+    flex-grow: 1; 
+    overflow-y: auto; 
+    padding-right: 5px; 
     height: 400px; 
 }
 
@@ -2235,9 +2231,9 @@ span.transaction-category {
     border-radius: 25px;
     font-weight: bold;
     cursor: pointer;
-    margin-top: auto;       /* Pushes button to bottom */
-    margin-bottom: 10px;    /* Adds little space at the bottom */
-    align-self: center;     /* Center horizontally */
+    margin-top: auto;     
+    margin-bottom: 10px;  
+    align-self: center;     
 }
 
 .add-btn:hover {
@@ -2245,10 +2241,6 @@ span.transaction-category {
 }
 
 /*REPORTS*/
-/*REPORTS*/
-/*REPORTS*/
-
-
 .report-content {
   background-color: #f5f3d8;
   padding: 3vb;
@@ -2334,15 +2326,15 @@ span.transaction-category {
 
 .total-summary-row {
   display: flex;
-  justify-content: center; /* Center-align for smaller boxes */
+  justify-content: center; 
   gap: 10px;
   margin-top: 10px;
   flex-wrap: wrap;
 }
 
 .summary-box {
-  width: 300px; /* Set fixed width for shorter box length */
-  padding: 7px 6px; /* Reduce padding */
+  width: 300px; 
+  padding: 7px 6px; 
   border-radius: 6px;
   color: #fff;
   font-weight: 600;
@@ -2411,7 +2403,7 @@ span.transaction-category {
 }
 
 .summary-tab {
-  color: #9c640c; /* Warm tone for summary, or change to #1d2a62 for dark blue */
+  color: #9c640c; 
   font-weight: bold;
   font-size: 2rem;
   padding-bottom: 10px;
@@ -2515,7 +2507,7 @@ span.transaction-category {
 }
 /* Total amounts styling */
 .total-amount {
-    color: #1D2A62; /* Dark blue for the descriptive text */
+    color: #1D2A62;
     font-size: 1rem;
     font-weight: 600;
     margin-top: 15px;
@@ -2523,7 +2515,7 @@ span.transaction-category {
 }
 
 .total-amount .amount-value {
-    color: #6B8E23; /* Olive green for the numerical amount */
+    color: #6B8E23; 
     padding-left: 10px;
 }
 
@@ -2539,7 +2531,7 @@ span.transaction-category {
 
 /* Total amounts styling */
 .total-amount1 {
-    color: #1D2A62; /* Dark blue for the descriptive text */
+    color: #1D2A62; 
     font-size: 1rem;
     font-weight: 600;
     margin-top: 15px;
@@ -2547,7 +2539,7 @@ span.transaction-category {
 }
 
 .total-amount1 .amount-value {
-    color: #6B8E23; /* Olive green for the numerical amount */
+    color: #6B8E23; 
     padding-left: 10px;
 }
 
@@ -2636,13 +2628,13 @@ span.transaction-category {
     font-family: 'Poppins', sans-serif;
     color: var(--primary-color);
     width: 100vw;
-    z-index: 1000; /* Ensure it's above other content */
+    z-index: 1000;
     box-sizing: border-box;
 }
 .dashboard-header-row {
-      display: block; /* Use flexbox to align children horizontally */
-      align-items: center; /* Vertically center items */
-      justify-content: space-between; /* Pushes H1 to the left, dashboard2 to the right */
+      display: block; 
+      align-items: center; 
+      justify-content: space-between; 
       background: white;
       padding: 20px;
       border-radius: 12px;
@@ -2655,7 +2647,7 @@ span.transaction-category {
       padding-left: 0;
       display: flex;
       align-items: center;
-      gap: 20px; /* 👈 Adds space between flex items */
+      gap: 20px;
       text-align: justify;
       -ms-text-justify: distribute-all-lines;
       text-justify: distribute-all-lines;
@@ -2665,9 +2657,9 @@ h1 {
       font-size: 28px;
       font-weight: 600;
       color: #1d2a62;
-      margin-bottom: 0; /* Remove bottom margin to align better with dashboard2 */
-      margin-top: 0; /* Ensure no top margin pushing it down */
-      flex-shrink: 0; /* Prevent h1 from shrinking if content is long */
+      margin-bottom: 0;
+      margin-top: 0; 
+      flex-shrink: 0; 
     }
 .goals-header h1 {
     margin: 0;
@@ -2725,7 +2717,7 @@ h1 {
 }
 .GoalStorage{
   display:flex;
-  gap: 30px; /* Space between goal items */
+  gap: 30px; 
     padding: 3vb;
 }
 
@@ -2740,7 +2732,7 @@ h1 {
     box-shadow: 0 8px 16px rgba(0,0,0,0.1);
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    width: 280px; /* Fixed width for consistency */
+    width: 280px; 
     text-align: center;
     box-sizing: border-box;
     max-height: 50vh;
@@ -2753,15 +2745,15 @@ h1 {
 
 /* Circular Progress Bar */
 .goal-circle {
-    width: 180px; /* Size of the outer circle */
+    width: 180px; 
     height: 180px;
     border-radius: 50%;
-    background-color: var(--circle-bg); /* Background for the empty part of the circle */
+    background-color: var(--circle-bg); 
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden; /* Important for conic-gradient to work correctly */
+    overflow: hidden;
     margin-bottom: 15px;
 }
 
@@ -2769,19 +2761,18 @@ h1 {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    /* conic-gradient is applied via inline style in PHP */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    z-index: 1; /* Ensure progress is above inner circle */
+    z-index: 1; 
 }
 
 .circle-inner {
-    width: calc(100% - 20px); /* Inner circle smaller than outer */
+    width: calc(100% - 20px); 
     height: calc(100% - 20px);
     border-radius: 50%;
-    background-color: var(--circle-inner-bg); /* Background for inner circle */
+    background-color: var(--circle-inner-bg); 
     position: absolute;
     top: 50%;
     left: 50%;
@@ -2790,14 +2781,14 @@ h1 {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    z-index: 2; /* Ensure inner circle is above progress */
+    z-index: 2; 
 }
 
 .circle-inner img {
-    max-width: 90%; /* Adjust size of image within inner circle */
+    max-width: 90%; 
     max-height: 90%;
-    border-radius: 50%; /* Make image round if desired */
-    object-fit: cover; /* Ensures image covers the area without distortion */
+    border-radius: 50%; 
+    object-fit: cover; 
 }
 
 .goal-text-details {
@@ -2829,7 +2820,7 @@ h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+    background-color: rgba(0, 0, 0, 0.6); 
     z-index: 1000;
     opacity: 1;
     transition: opacity 0.3s ease;
@@ -2837,7 +2828,7 @@ h1 {
 
 .modal.hidden {
     opacity: 0;
-    pointer-events: none; /* Disable interaction when hidden */
+    pointer-events: none; 
 }
 
 .modal-content {
@@ -2851,14 +2842,14 @@ h1 {
     width: 90%;
     transform: translateY(0);
     transition: transform 0.3s ease;
-    display: flex; /* Flex container for internal elements */
+    display: flex; 
     flex-direction: column;
     align-items: center;
     gap: 15px;
 }
 
 .modal.hidden .modal-content {
-    transform: translateY(-50px); /* Slide up effect */
+    transform: translateY(-50px); 
 }
 
 .modal-content .close-button {
@@ -2915,7 +2906,7 @@ h1 {
 /* Add Goal Form Specific Styles */
 .add-goal-wrapper,
 .finished-goals-wrapper,
-.modal { /* .modal is for goal-details-modal */
+.modal { 
     position: fixed;
     top: 0;
     left: 0;
@@ -2924,9 +2915,9 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Ensure it's on top */
+    z-index: 1000; 
 }
-.hidden { /* Make sure this class correctly hides elements */
+.hidden { 
     display: none !important;
 }
 
@@ -2939,16 +2930,16 @@ h1 {
 
 .add-goal-content {
     background-color: var(--white);
-    padding: 35px 40px; /* Generous padding to match image spacing */
+    padding: 35px 40px; 
     border-radius: 15px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-    position: relative; /* Essential for absolute positioning of close button */
-    max-width: 680px; /* Adjusted max width to match image proportions */
-    width: 90%; /* Responsive width */
-    box-sizing: border-box; /* Include padding in width calculation */
-    display: flex; /* Flex container for h2 and form */
-    flex-direction: column; /* Stack vertically */
-    align-items: center; /* Center horizontally */
+    position: relative; 
+    max-width: 680px; 
+    width: 90%; 
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
 }
 
 .add-goal-content label {
@@ -2965,13 +2956,13 @@ h1 {
 .add-goal-content input[type="date"],
 .add-goal-content input[type="datetime-local"] {
     width: 100%;
-    padding: 12px 15px; /* Comfortable padding */
-    margin-bottom: 20px; /* Space below inputs */
-    border: 1px solid #ddd; /* Light grey border */
-    border-radius: 8px; /* Slightly rounded corners */
+    padding: 12px 15px; 
+    margin-bottom: 20px; 
+    border: 1px solid #ddd;
+    border-radius: 8px; 
     font-size: 1rem;
     color: var(--text-color);
-    box-sizing: border-box; /* Include padding in width */
+    box-sizing: border-box; 
 }
 
 .add-goal-content button[type="submit"] {
@@ -2983,8 +2974,8 @@ h1 {
     cursor: pointer;
     font-size: 1.15rem;
     font-weight: 600;
-    margin-top: 15px; /* Space above the button */
-    width: 100%; /* Make button full width */
+    margin-top: 15px; 
+    width: 100%; 
     transition: background-color 0.2s ease;
 }
 
@@ -2992,26 +2983,26 @@ h1 {
     background-color: #1a2353; /* Slightly darker primary color on hover */
 }
 .upload-button i.fa-camera {
-    font-size: 1.3rem; /* Size of the camera icon */
+    font-size: 1.3rem; 
     color: var(--primary-color);
 }
-/* Hide the actual file input */
+
 .add-goal-content input[type="file"] {
     display: none;
 }
 .upload-button {
-    background-color: #f0f0f0; /* Light background */
+    background-color: #f0f0f0; 
     color: var(--text-color);
     padding: 12px 20px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 1.1rem;
-    display: flex; /* Use flex to align icon and text */
-    align-items: center; /* Vertically center */
-    justify-content: center; /* Horizontally center */
-    gap: 10px; /* Space between icon and text */
-    margin-bottom: 25px; /* Space below the upload button */
-    border: 1px solid #e0e0e0; /* Subtle border */
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    gap: 10px; 
+    margin-bottom: 25px; 
+    border: 1px solid #e0e0e0; 
     transition: background-color 0.2s ease;
 }
 
@@ -3020,14 +3011,14 @@ h1 {
 }
 
 .upload-button:hover {
-    background-color: #e5e5e5; /* Slightly darker on hover */
+    background-color: #e5e5e5; 
 }
 
 .add-goal-content .close-button {
     position: absolute;
-    top: 20px; /* Position from top */
-    left: 25px; /* Position from left */
-    font-size: 2.2rem; /* Larger 'x' icon */
+    top: 20px; 
+    left: 25px; 
+    font-size: 2.2rem; 
     cursor: pointer;
     color: #888;
     transition: color 0.2s ease;
@@ -3082,26 +3073,26 @@ h1 {
 }
 .form-columns {
     display: flex;
-    gap: 30px; /* Space between columns */
-    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+    gap: 30px; 
+    flex-wrap: wrap; 
     width: 100%;
 }
 /* Responsive Adjustments */
 @media (max-width: 600px) {
     .add-goal-content {
         padding: 25px 20px;
-        max-width: 95%; /* Adjust max-width for very small screens */
+        max-width: 95%; 
     }
 
     .form-columns {
-        flex-direction: column; /* Stack columns vertically */
-        gap: 0; /* Remove gap when stacked */
+        flex-direction: column; 
+        gap: 0; 
     }
 
     .calendar-side,
     .details-side {
-        min-width: unset; /* Remove min-width when stacked */
-        width: 100%; /* Take full width */
+        min-width: unset; 
+        width: 100%;
     }
 
     .add-goal-content h2 {
@@ -3133,19 +3124,19 @@ h1 {
     }
 
     .goals-container {
-        padding: 140px 10px 10px 10px; /* Adjust padding for smaller screens */
-        margin-left: 0; /* Remove sidebar offset */
+        padding: 140px 10px 10px 10px; 
+        margin-left: 0; 
         justify-content: center;
     }
 
     .goal-item {
-        width: 100%; /* Make items full width on small screens */
-        max-width: 300px; /* Max width for single column */
+        width: 100%; 
+        max-width: 300px; 
     }
 
     .form-columns {
         flex-direction: column;
-        gap: 1rem !important; /* Adjust gap for form columns */
+        gap: 1rem !important; 
     }
 
     .calendar-side, .details-side {
@@ -3164,26 +3155,26 @@ h1 {
 
 .calendar-side,
 .details-side {
-    flex: 1; /* Both columns take equal space */
-    min-width: 280px; /* Minimum width to prevent squishing on smaller screens */
+    flex: 1; 
+    min-width: 280px;
     display: flex;
-    flex-direction: column; /* Stack labels and inputs vertically */
+    flex-direction: column; 
 }
 .add-goal-content h2 {
     color: var(--primary-color);
-    font-size: 2.2rem; /* Adjusted font size for title */
+    font-size: 2.2rem; 
     margin-top: 0;
-    margin-bottom: 25px; /* Space below title */
+    margin-bottom: 25px; 
     text-align: center;
-    width: 100%; /* Ensure it takes full width to center effectively */
+    width: 100%; 
 }
 .add-goal-content form {
-    width: 100%; /* Make the form take full width of its container */
+    width: 100%; 
 }
 .add-goal-content label {
-    display: block; /* Make labels take full width */
-    margin-bottom: 8px; /* Space below labels */
-    font-weight: 600; /* Slightly bolder labels */
+    display: block;
+    margin-bottom: 8px; 
+    font-weight: 600; 
     color: var(--text-color);
     font-size: 1.05rem;
 }
@@ -3366,35 +3357,34 @@ input[type="datetime-local"] {
 }
 
 .stat-box p {
-  font-size: 30px; /* For the large numbers like "$2,250" */
-    font-weight: 700; /* Bold */
-    color: #333; /* Example: A strong blue for emphasis */
-    line-height: 1.2; /* Tightly packed for the number */
-    margin-bottom: 5px; /* Spacing below the number */
+  font-size: 30px;
+    font-weight: 700;
+    color: #333; 
+    line-height: 1.2; 
+    margin-bottom: 5px; 
 }
 
 :root {
-    --primary-color: #1D2A62; /* Dark blue from your sidebar */
-    --secondary-color: #5A67D8; /* A lighter blue */
-    --accent-color: #00BFFF; /* Example for highlights */
+    --primary-color: #1D2A62; 
+    --secondary-color: #5A67D8; 
+    --accent-color: #00BFFF; 
     --text-color: #333;
     --light-bg: #F0F2F5;
     --white: #FFFFFF;
 
     /* Goal specific colors */
-    --saved-color: #8BC34A; /* Green for saved progress */
-    --remaining-color: #64B5F6; /* Blue for remaining progress */
-    --circle-bg: #e0e0e0; /* Light grey for empty part of circle */
-    --circle-inner-bg: #f0f0f0; /* Slightly different grey for inner circle */
+    --saved-color: #8BC34A; 
+    --remaining-color: #64B5F6; 
+    --circle-bg: #e0e0e0; 
+    --circle-inner-bg: #f0f0f0; 
 }
 
 /* Toggle Switch Container */
 .toggle-switch-container {
     display: flex;
     align-items: center;
-    margin-top: 15px; /* Space above the toggle */
-    margin-bottom: 25px; /* Space below the toggle before button */
-}
+    margin-top: 15px; 
+    margin-bottom: 25px; 
 
 /* Hide default checkbox */
 .toggle-switch-container input[type="checkbox"] {
@@ -3405,25 +3395,24 @@ input[type="datetime-local"] {
 .toggle-switch-container .toggle-label {
     position: relative;
     display: inline-block;
-    width: 60px; /* Width of the switch */
-    height: 34px; /* Height of the switch */
-    background-color: #ccc; /* Background when off */
-    border-radius: 34px; /* Rounded corners for the switch */
+    width: 60px; 
+    height: 34px; 
+    background-color: #ccc;
+    border-radius: 34px; 
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-right: 15px; /* Space between switch and text */
-}
+    margin-right: 15px; 
 
 /* Style for the slider (the draggable part) */
 .toggle-switch-container .toggle-label::before {
     content: "";
     position: absolute;
-    width: 26px; /* Size of the circle */
+    width: 26px; 
     height: 26px;
     border-radius: 50%;
     background-color: white;
-    top: 4px; /* Centering the circle vertically */
-    left: 4px; /* Initial position */
+    top: 4px; 
+    left: 4px; 
     transition: transform 0.3s;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
@@ -3432,12 +3421,12 @@ input[type="datetime-local"] {
 }
 /* When checkbox is checked (toggle is ON) */
 .toggle-switch-container input[type="checkbox"]:checked + .toggle-label {
-    background-color: var(--primary-color); /* Green or your primary color when on */
+    background-color: var(--primary-color); 
 }
 
 /* Move slider to the right when checked */
 .toggle-switch-container input[type="checkbox"]:checked + .toggle-label::before {
-    transform: translateX(26px); /* Move 26px to the right (60 - 26 - 4*2 = 26) */
+    transform: translateX(26px); 
 }
 
 /* Style for the text next to the toggle */
@@ -3449,7 +3438,7 @@ input[type="datetime-local"] {
 
 /* Ensure existing form styles are compatible or adjust */
 .transaction-form label {
-    margin-bottom: 8px; /* Standard label margin */
+    margin-bottom: 8px; 
 }
 
 /*LOAN CSS*/
@@ -3457,8 +3446,7 @@ input[type="datetime-local"] {
   display: block;
   padding: 50px;
   background-color: #f5f3d8;
-  margin-left: 50px; /* space for the sidebar */
-}
+  margin-left: 50px; 
 .loan-headerpos h2{
 font-size: 3.5rem;
 margin-bottom: 20px;
@@ -3467,22 +3455,22 @@ color: #202b5e
 
 .loan-summary {
   display: flex;
-  flex-wrap: wrap;       /* allow wrap on smaller screens */
+  flex-wrap: wrap;      
   gap: 32px;
   align-items: stretch;
   width: 100%;
-  /*max-width: 1640px;      make width same as .loan-form */
-  padding: 20px;          /* match .loan-form's padding */
+  /*max-width: 1640px; */
+  padding: 20px;          
   background: #fff;
-  border-radius: 10px;    /* match .loan-form's border-radius */
+  border-radius: 10px;    
   box-sizing: border-box;
-  margin: 20px 0px auto;      /* center it like .loan-form */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* optional: match shadow */
+  margin: 20px 0px auto;      
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
 }
 
 .loan-summary-item {
-  flex: 1;       /* equal width */
-  background: #fffef4;  /* subtle contrast */
+  flex: 1;       
+  background: #fffef4; 
   border-radius: 12px;
   padding: 20px;
   text-align: center;
@@ -3521,18 +3509,17 @@ color: #202b5e
   flex-wrap: wrap;
   justify-content: flex-start;
   width: 100%;
-  /*max-width: 1240px;      match .loan-form */
-  padding: 20px;         /* match .loan-form */
-  margin: 20px auto;     /* center and add vertical spacing */
+  /*max-width: 1240px;     */
+  padding: 20px;        
+  margin: 20px auto;     
   gap: 20px;
   box-sizing: border-box;
 }
 
 .close-btn {
   position: absolute;
-  top: 10px;       /* small space from top */
-  right: 10px;     /* small space from right */
-  font-size: 1.5rem;
+  top: 10px;    
+  right: 10px;    
   font-weight: bold;
   color: #333;
   background: none;
@@ -3581,7 +3568,7 @@ color: white;
 }
 
 .loan-form {
-  position: relative; /* make this the positioning context */
+  position: relative; 
   background:rgb(245, 239, 239);
   padding: 20px;
   border-radius: 10px;
@@ -3651,7 +3638,7 @@ margin-top: 20px;
 }
 /* Total amounts styling */
 .total-amount1 {
-    color: #1D2A62; /* Dark blue for the descriptive text */
+    color: #1D2A62; 
     font-size: 1rem;
     font-weight: 600;
     margin-top: 15px;
@@ -3659,7 +3646,7 @@ margin-top: 20px;
 }
 
 .total-amount1 .amount-value {
-    color: #6B8E23; /* Olive green for the numerical amount */
+    color: #6B8E23; 
     padding-left: 10px;
 }
 

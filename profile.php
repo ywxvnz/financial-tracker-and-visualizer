@@ -16,7 +16,6 @@ if (!$accountResult) {
 
 $financials = mysqli_fetch_assoc($accountResult);
 
-// Get the profile picture path, defaulting if not set
 $profile_picture_display_path = $financials['profile_picture'] ?? 'images/jem.jpg';
 
 ?>
@@ -141,8 +140,7 @@ $profile_picture_display_path = $financials['profile_picture'] ?? 'images/jem.jp
       errorMsg.textContent = "";
       return true;
     }
-    
-    // JavaScript for immediate image preview and success message
+
     const profilePictureUpload = document.getElementById('profile_picture_upload');
     const profilePictureDisplay = document.getElementById('profile-picture-display');
     const uploadMsg = document.getElementById('profile-upload-msg');
@@ -162,7 +160,7 @@ $profile_picture_display_path = $financials['profile_picture'] ?? 'images/jem.jp
           reader.readAsDataURL(file);
         }
       });
-    // hide success message after 3 seconds like sa profile picture
+      
       const successMsg = document.getElementById("success-msg");
       if (successMsg) {
         setTimeout(() => {

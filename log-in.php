@@ -18,15 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $_SESSION['user_name'] = $row['first_name'] . " " . $row['last_name'];
         $_SESSION['email'] = $email;
 
-        // Check if security question is already set
         if (!empty($row['security_question']) && !empty($row['security_answer'])) {
-            // Security question is set, go to dashboard
             echo '<script>
                     alert("Login successful!");
                     window.location.href = "dashboard.php";
                   </script>';
         } else {
-            // Security setup incomplete, redirect to config/setup page
             echo '<script>
                     alert("Login successful! Please complete your security question setup.");
                     window.location.href = "config.php";

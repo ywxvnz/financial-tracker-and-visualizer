@@ -18,7 +18,6 @@ session_start();
     $sql = "UPDATE users SET password = '$password' WHERE email = '$email'";
 
             if ($conn->query($sql) === TRUE) {
-                // Redirect to login page after successful registration
                 echo '<script>
                     alert("Password Change Sucessful!");
                     window.location.href = "log-in.php";

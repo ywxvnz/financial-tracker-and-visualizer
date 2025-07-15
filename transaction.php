@@ -1,7 +1,7 @@
 <?php
 date_default_timezone_set('Asia/Manila');
-error_reporting(E_ALL); // Report all PHP errors
-ini_set('display_errors', 1); // Display all PHP errors
+error_reporting(E_ALL); 
+ini_set('display_errors', 1); 
 
 include('db_connect.php');
 session_start();

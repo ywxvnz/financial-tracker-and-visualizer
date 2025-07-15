@@ -25,7 +25,7 @@ if (isset($_POST['update_loan'])) {
     $category = $_POST['category'];
     $type = $_POST['type'];
     $amount = $_POST['amount'];
-    $due_date = $_POST['due_date']; // New due date field
+    $due_date = $_POST['due_date']; 
 
     $stmt = $conn->prepare("UPDATE loans SET date = ?, name = ?, category = ?, type = ?, amount = ?, due_date = ? WHERE id = ?");
     $stmt->bind_param("ssssdsi", $date, $name, $category, $type, $amount, $due_date, $id);
@@ -41,7 +41,7 @@ if (isset($_GET['delete_loan_id'])) {
     $loan_id = (int) $_GET['delete_loan_id'];
     $user_id = $_SESSION['user_id'];
     
-    // Get the balance of the loan to update the user's balance
+    // Get the balance of the loan
     $stmt = $conn->prepare("SELECT balance FROM loans WHERE id = ?");
     $stmt->bind_param("i", $loan_id);
     $stmt->execute();
@@ -70,7 +70,6 @@ if (isset($_GET['delete_loan_id'])) {
 
 // EDIT LOAN
 if (isset($_POST['edit_loan'])) {
-    // ── 1. Read and sanitise input ────────────────────────
     $loan_id      = (int) $_POST['loan_id'];
     $loan_name    = $_POST['loan_name'];
     $loan_type_id = (int) $_POST['loan_type_id'];
@@ -79,8 +78,6 @@ if (isset($_POST['edit_loan'])) {
     $balance      = (float) $_POST['balance'];     // current balance
     $due_date     = $_POST['due_date'];             // New due date field
 
-    /* ── 2. Derive status automatically
-           If the balance is exactly 0 ➜ Paid, otherwise ➜ Ongoing ── */
     $status = ($balance == 0) ? 'Paid' : 'Ongoing';
 
     if ($amount < $balance) {
@@ -88,7 +85,6 @@ if (isset($_POST['edit_loan'])) {
         exit;
     }
 
-    // ── 3. Update the record ──────────────────────────────
     $sql = "UPDATE loans
             SET name         = ?,
                 loan_type_id = ?,
@@ -138,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loan_id'], $_POST['pa
         $update->execute();
 
         // Insert transaction record
-        $user_id = $_SESSION['user_id']; // assuming session holds this
+        $user_id = $_SESSION['user_id']; 
         $type = "Loan Payment";
         $date_issued = date('Y-m-d H:i:s');
         $insert = $conn->prepare("INSERT INTO transactions (user_id, type, amount, date_issued, title, loan_id)
@@ -149,7 +145,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['loan_id'], $_POST['pa
     }
 }
 
-$loggedInUserId = $_SESSION['user_id'] ?? null; // Fixed variable name
+$loggedInUserId = $_SESSION['user_id'] ?? null; 
 if ($loggedInUserId === null) {
     die("User  not logged in. Please log in to view your loans.");
 }
@@ -186,7 +182,6 @@ if (isset($_SESSION['user_id'])) {
             }
         }
 
-        // Output the collapsible reminder box
         echo <<<HTML
 <style>
 .reminder-box {
@@ -331,7 +326,7 @@ HTML;
             </select>
             <label><br><h5>Loan Date</h5></label>
             <input type="datetime-local" value="<?= date('Y-m-d\TH:i') ?>" name="loan_date" required>
-            <label><br><h5>Due Date</h5></label> <!-- New Due Date Field -->
+            <label><br><h5>Due Date</h5></label> 
             <input type="date" name="due_date" class="form-control" required min="<?= date('Y-m-d') ?>">
             <label><br><h5>Loan Amount</h5></label>
             <input type="number" name="amount" placeholder="Amount" step="0.01" min="0" required>
@@ -344,13 +339,12 @@ HTML;
             $loanName = $_POST['loan_name'];
             $loanTypeId = $_POST['loan_type_id'];
             $loanDate = $_POST['loan_date'];
-            $dueDate = $_POST['due_date']; // ✅ GET DUE DATE
+            $dueDate = $_POST['due_date']; 
             $amount = round((float) $_POST['amount'], 2);
             $initialBalance = $amount;
             $status = 'Ongoing';
 
             if ($conn) {
-                // 1. Get monthly income from config
                 $stmtIncome = $conn->prepare("SELECT income FROM config WHERE user_id = ?");
                 $stmtIncome->bind_param("i", $loggedInUserId);
                 $stmtIncome->execute();
@@ -366,8 +360,6 @@ HTML;
                 $monthlyIncome = (float) $incomeData['income'];
                 $maxAllowedBalance = $monthlyIncome * 0.4;
 
-                // 2. Get existing unpaid loan balance (excluding new one)
-                // ❌ Block if there's any overdue unpaid loan
                 $stmtOverdue = $conn->prepare("SELECT COUNT(*) AS overdue_count FROM loans WHERE user_id = ? AND balance > 0 AND due_date IS NOT NULL AND due_date <= CURDATE()");
                 $stmtOverdue->bind_param("i", $loggedInUserId);
                 $stmtOverdue->execute();
@@ -390,16 +382,14 @@ HTML;
                 $existingBalance = (float) ($resultBalance->fetch_assoc()['total_balance'] ?? 0);
                 $stmtBalance->close();
 
-                // 3. Check if current + new loan exceeds limit
                 if (($existingBalance + $initialBalance) > $maxAllowedBalance) {
                     echo "<script>
                         alert('Sorry, you can’t take a new loan right now. Your unpaid loans already exceed 40% of your income. Try paying off some loans first.');
                         window.location.href = 'loan.php'; // optional redirect AFTER alert
                     </script>";
-                    exit; // ✅ This stops the script immediately
+                    exit; 
                 }
 
-                // 4. Add loan (with due_date)
                 $stmt = $conn->prepare("INSERT INTO loans (user_id, name, loan_type_id, amount, balance, status, date, due_date)
                                         VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
                 if ($stmt) {
@@ -411,7 +401,6 @@ HTML;
                     }
                     $stmt->close();
 
-                    // 5. Update user config balance
                     $updatebalance = $conn->prepare("UPDATE config SET balance = balance + ? WHERE user_id = ?");
                     if ($updatebalance) {
                         $updatebalance->bind_param("di", $amount, $loggedInUserId);
@@ -458,14 +447,14 @@ HTML;
                       if ($result->num_rows > 0) {
                           while ($loan = $result->fetch_assoc()) {
                               echo "<tr>";
-                                echo "<td>" . htmlspecialchars($loan['date']) . "</td>";                 // Date
-                                echo "<td>" . htmlspecialchars($loan['name']) . "</td>";                 // Name
-                                echo "<td>" . htmlspecialchars($loan['type']) . "</td>";                 // Type
-                                echo "<td>P" . number_format($loan['amount'], 2) . "</td>";             // Amount
-                                echo "<td>P" . number_format($loan['balance'], 2) . "</td>";            // Balance
-                                echo "<td>" . htmlspecialchars($loan['status']) . "</td>";              // Status
-                                echo "<td data-balance='" . htmlspecialchars($loan['balance']) . "'></td>"; // Remarks
-                                echo "<td>" . htmlspecialchars($loan['due_date']) . "</td>";            // Due Date
+                                echo "<td>" . htmlspecialchars($loan['date']) . "</td>";                
+                                echo "<td>" . htmlspecialchars($loan['name']) . "</td>";                 
+                                echo "<td>" . htmlspecialchars($loan['type']) . "</td>";                 
+                                echo "<td>P" . number_format($loan['amount'], 2) . "</td>";             
+                                echo "<td>P" . number_format($loan['balance'], 2) . "</td>";            
+                                echo "<td>" . htmlspecialchars($loan['status']) . "</td>";              
+                                echo "<td data-balance='" . htmlspecialchars($loan['balance']) . "'></td>"; 
+                                echo "<td>" . htmlspecialchars($loan['due_date']) . "</td>";            
                                 echo "<td class='loan-actions'>                                         
                                         <button class='loan-edit-btn' title='Edit' data-loan-id='" . $loan['id'] . "'>
                                         <img src='images/edit3.png' alt='Edit' class='loan-action-icon'>
@@ -473,7 +462,7 @@ HTML;
                                         <button class='loan-delete-btn' title='Delete' data-loan-id='" . $loan['id'] . "'>
                                         <img src='images/deletes.png' alt='Delete' class='loan-action-icon'>
                                         </button>
-                                    </td>";                                                            // Actions
+                                    </td>";                                                            
                                 echo "</tr>";
 
                           }
@@ -528,10 +517,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 type: row.cells[2].innerText,
                 amount: row.cells[3].innerText.replace(/[^\d.]/g, ''),
                 balance: row.cells[4].innerText.replace(/[^\d.]/g, ''),
-                due_date: row.cells[6].innerText // Capture due date for editing
+                due_date: row.cells[6].innerText 
             };
 
-            // Replace cells with inputs
             row.cells[0].innerHTML = `<input type="date" value="${originalData.date}" class="inline-input">`;
             row.cells[1].innerHTML = `<input type="text" value="${originalData.name}" class="inline-input">`;
             row.cells[2].innerHTML = `<select class="inline-select">${
@@ -542,24 +530,19 @@ document.addEventListener("DOMContentLoaded", () => {
             }</select>`;
             row.cells[3].innerHTML = `<input type="number" value="${originalData.amount}" class="inline-input">`;
             row.cells[4].innerHTML = `<input type="number" value="${originalData.balance}" class="inline-input">`;
-            // Replace actions with Save/Cancel
-            row.cells[5].innerText = '-'; // Status is auto-updated in
-                        // Replace actions with Save/Cancel
-            row.cells[5].innerText = '-'; // Status is auto-updated in PHP — not editable manually
-            row.cells[6].innerHTML = `<input type="date" value="${originalData.due_date}" class="inline-input">`; // Due date input
+            row.cells[5].innerText = '-'; 
+            row.cells[5].innerText = '-'; 
+            row.cells[6].innerHTML = `<input type="date" value="${originalData.due_date}" class="inline-input">`; 
 
-            // Replace actions with Save/Cancel
             row.cells[7].innerHTML = `
                 <button class="btn-save-inline">Save</button>
                 <button class="btn-cancel-inline">Cancel</button>
             `;
 
-            // Cancel reloads page
             row.querySelector('.btn-cancel-inline').addEventListener('click', () => {
                 location.reload();
             });
 
-            // Save creates a hidden form and submits it
             row.querySelector('.btn-save-inline').addEventListener('click', () => {
                 const updated = {
                     date: row.cells[0].querySelector('input').value,
@@ -567,9 +550,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     typeId: row.cells[2].querySelector('select').value,
                     amount: parseFloat(row.cells[3].querySelector('input').value),
                     balance: parseFloat(row.cells[4].querySelector('input').value),
-                    dueDate: row.cells[6].querySelector('input').value // Capture due date
+                    dueDate: row.cells[6].querySelector('input').value 
                 };
-                // Validate: amount must be >= balance
+
                 if (updated.amount < updated.balance) {
                     alert("Loan amount cannot be less than the loan balance.");
                     return;

@@ -26,7 +26,7 @@ if (!isset($_SESSION['user_id'])) {
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 80px; /* Ensure a minimum height for days */
+      min-height: 80px; 
       position: relative;
     }
 
@@ -39,7 +39,7 @@ if (!isset($_SESSION['user_id'])) {
 
     /* Hover effect for days */
     .calendar-grid .day:hover:not(.empty):not(.selected-day) {
-      filter: brightness(95%); /* Slightly darken on hover */
+      filter: brightness(95%); 
     }
 
     /* Current day styling */
@@ -52,15 +52,15 @@ if (!isset($_SESSION['user_id'])) {
 
     /* Selected day styling - ensures it overrides heatmap colors */
     .day.selected-day {
-      background-color: #007bff !important; /* Blue for selected */
+      background-color: #007bff !important; 
       color: white !important;
-      border: 2px solid #0056b3; /* Darker border for selected day */
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Subtle shadow for selected day */
+      border: 2px solid #0056b3; 
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
     }
 
     /* Selected current day styling */
     .day.selected-day.current-day {
-        background-color: #00bcd4 !important; /* Example: Selected current day */
+        background-color: #00bcd4 !important; 
         color: white !important;
     }
 
@@ -73,19 +73,19 @@ if (!isset($_SESSION['user_id'])) {
 
     /* TRANSACTION AMOUNT COLORS */
     .income-amount {
-        color: #28a745; /* Green */
+        color: #28a745;
         font-weight: bold;
         flex-shrink: 0;
     }
 
     .expense-amount {
-        color: #dc3545; /* Red */
+        color: #dc3545; 
         font-weight: bold;
         flex-shrink: 0;
     }
 
     .savings-amount {
-        color: #007bff; /* Blue */
+        color: #007bff; 
         font-weight: bold;
         flex-shrink: 0;
     }
@@ -101,7 +101,7 @@ if (!isset($_SESSION['user_id'])) {
     }
 
     .transaction-item:last-child {
-        border-bottom: none; /* No border for the last item */
+        border-bottom: none; 
     }
 
     .transaction-details {

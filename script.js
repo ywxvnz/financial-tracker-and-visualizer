@@ -68,12 +68,10 @@ function renderCalendar(date) {
 
       //IF TODAY, INCLUDE TIME; ELSE, OMIT TIME
       if (isToday) {
-        // Include current time
         const now = new Date();
         selectedDate.setHours(now.getHours(), now.getMinutes());
         transactionDate.textContent = formatDate(selectedDate, true);
       } else {
-        // No time for other dates
         transactionDate.textContent = formatDate(selectedDate, false);
       }
     });
@@ -103,5 +101,4 @@ nextBtn.addEventListener("click", () => {
   renderCalendar(currentDate);
 });
 
-// Initial render
 renderCalendar(currentDate);
